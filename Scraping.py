@@ -1,8 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import json 
-from google.colab import files
-
 # Make a request to the website
 r = requests.get('https://en.wikipedia.org/wiki/Science_fiction_film')
 
