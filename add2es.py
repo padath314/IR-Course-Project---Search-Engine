@@ -21,7 +21,7 @@ def connect_elasticsearch():
     return es
 es = connect_elasticsearch()
 
-df = pd.read_json("IR_dataset.json")
+df = pd.read_json("sample.json")
 #convert json to appropriate format
 
 
