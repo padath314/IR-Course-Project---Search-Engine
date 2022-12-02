@@ -12,11 +12,6 @@ from string import punctuation
 class preprocessing:
     def __init__(self):
         json_data=5
-
-    def make(self):
-        final=list()
-        for i in final:
-            data=i.keys()
     
     def decontracted(self,phrase):
         # specific
@@ -54,3 +49,14 @@ class preprocessing:
     def remove_stopwords(self,string):
         stop_words = set(stopwords.words('english'))
         return ' '.join([w for w in nltk.word_tokenize(string) if not w in stop_words])
+
+    def make(self):
+        final=list()
+        for i in final:
+            data=i.keys()
+            res=dict()
+            for j in data:
+                s=i[j]
+                s=remove_stopwords(lemmatise(stemming(remove_punct(decontracted(s)))))
+            res.append(s)
+        return res
