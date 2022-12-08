@@ -7,26 +7,37 @@
 
 
 </head>
-
-<h1>Final Results</h1>
-<h2>Did You Mean</h2>
+<h1 class="heading">Final Results</h1>
 
 <body>
+
+<div class="dym">
+    <h2 class="did-you-mean">Did You Mean</h2>
+    
+    <div class="each">
     {% for item in suggest %}
+
+        <div class="suggestions">
         {% for item1 in item['options'] %}
+            {{ item1['text'] }} 
+        {% endfor %}
+        </div>
+    instead of {{ item['text'] }}
+    {% endfor %}
+    </div>
 
-<div class="card p-3  py-4" style="margin-top: 1rem;">
-{{ item1['text'] }} 
+</div>
 
 
-{% endfor %}
-{% endfor %}
+<div class="results">
+    <!-- <h2 class="sub-heading">Results</h2> -->
+    {% for item in result %}
 
-<h2>Results</h2>
-{% for item in result %}
+    <div style="margin-top: 1rem;">
+        <a href={{ item['_source']['link'] }}>{{ item['_source']['title'] }}</a> <br>
+        {% endfor %}
 
-<div class="card p-3  py-4" style="margin-top: 1rem;">
-<a href={{ item['_source']['link'] }}>{{ item['_source']['title'] }}</a> <br>
-{% endfor %}
+</div>
+
 </body>
 </html>
