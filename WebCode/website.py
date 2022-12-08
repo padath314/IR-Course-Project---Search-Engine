@@ -28,7 +28,9 @@ def submit():
       "text" : Q,
       "term" : {
         "field" : "content",
-        "suggest_mode" : "missing"
+        "suggest_mode" : "missing",
+	 "string_distance" : "levenshtein"    
+	      
         
       }
     }
