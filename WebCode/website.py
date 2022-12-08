@@ -50,9 +50,9 @@ def submit():
 
     if(res1['suggest']['my-suggestion'][0]['options']):
       print('Wrong query')
-      return render_template('result.html',result = res['hits']['hits'],suggest = res1['suggest']['my-suggestion'],uptd = 0)
+      return render_template('result.html',result = res['hits']['hits'],suggest = res1['suggest']['my-suggestion'],uptd = 'Y')
     else:  
       print('Correct query')
-      return render_template('result.html',result = res['hits']['hits'],updt = 1)
+      return render_template('result.html',result = res['hits']['hits'],updt = 'N')
  
 app.run(port=5000, debug=True)

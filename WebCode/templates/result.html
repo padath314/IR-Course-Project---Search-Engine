@@ -11,15 +11,14 @@
 
 <body>
 
-<div class="dym">
-    <h2 class="did-you-mean">Did You Mean</h2>
-    
+<div class="dym">    
     <div class="each">
     {% set break = false %}
-    {% if updt == 0 %}
+    {% if updt == 'N' %}
         {% set break = true %}
     {% endif %}
     {% for item in suggest if not break %} 
+    Did you mean
         <div class="suggestions">
         {% for item1 in item['options'] %}
             {{ item1['text'] }} 
