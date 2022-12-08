@@ -1,4 +1,3 @@
-#from datetime import datetime
 from flask import Flask, request
 from elasticsearch import Elasticsearch
 from flask import render_template
@@ -37,22 +36,22 @@ def submit():
   }
    }
         if model_name == 'BM25':   
-          res = es.search(index="wikisearch", body=body)
-          res1 = es.search(index = "wikisearch", body = body1)
-        else:
           res = es.search(index="wikisearch1", body=body)
           res1 = es.search(index = "wikisearch1", body = body1)
-        print(res1['suggest']['my-suggestion'])
+        else:
+          res = es.search(index="wikisearch2", body=body)
+          res1 = es.search(index = "wikisearch2", body = body1)
+        #print(res1['suggest']['my-suggestion'])
     else:
         print("error occured while making request")
 	
     #res1= [{'link':result['link'],'title':result['title']} for result in res['hits']['hits'][0]['_source']]
 
     if(res1['suggest']['my-suggestion'][0]['options']):
-      print('Wrong query')
-      return render_template('result.html',result = res['hits']['hits'],suggest = res1['suggest']['my-suggestion'],uptd = 'Y')
+      #print('Wrong query')
+      return render_template('result.html',result = res['hits']['hits'],suggest = res1['suggest']['my-suggestion'])
     else:  
-      print('Correct query')
-      return render_template('result.html',result = res['hits']['hits'],updt = 'N')
+      #print('Correct query')
+      return render_template('result.html',result = res['hits']['hits'])
  
 app.run(port=5000, debug=True)

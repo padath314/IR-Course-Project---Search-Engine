@@ -13,10 +13,6 @@
 
 <div class="dym">    
     <div class="each">
-    {% set break = false %}
-    {% if updt == 'N' %}
-        {% set break = true %}
-    {% endif %}
     {% for item in suggest if not break %} 
     Did you mean
         <div class="suggestions">
