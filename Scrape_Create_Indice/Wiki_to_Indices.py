@@ -21,7 +21,7 @@ def connect_elasticsearch():
     return es
 es = connect_elasticsearch()
 
-df = pd.read_json("sample.json")
+df = pd.read_json("sample (3).json")
 #convert json to appropriate format
 
 
@@ -46,7 +46,7 @@ df2 = df.to_dict('records')
 def generator(df):
     for c, line in enumerate(df):
         yield{
-    '_index': 'wikisearch1',
+    '_index': 'wikisearch-bm25',
     '_type': 'dataset',
     '_id': line.get('ID'),
     '_source': {

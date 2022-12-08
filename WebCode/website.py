@@ -37,11 +37,11 @@ def submit():
   }
    }
         if model_name == 'BM25':   
+          res = es.search(index="wikisearch", body=body)
+          res1 = es.search(index = "wikisearch", body = body1)
+        else:
           res = es.search(index="wikisearch1", body=body)
           res1 = es.search(index = "wikisearch1", body = body1)
-        else:
-          res = es.search(index="wikisearch2", body=body)
-          res1 = es.search(index = "wikisearch2", body = body1)
         print(res1['suggest']['my-suggestion'])
     else:
         print("error occured while making request")
