@@ -15,8 +15,11 @@
     <h2 class="did-you-mean">Did You Mean</h2>
     
     <div class="each">
-    {% for item in suggest %}
-
+    {% set break = false %}
+    {% if updt == 0 %}
+        {% set break = true %}
+    {% endif %}
+    {% for item in suggest if not break %} 
         <div class="suggestions">
         {% for item1 in item['options'] %}
             {{ item1['text'] }} 
@@ -27,7 +30,6 @@
     </div>
 
 </div>
-
 
 <div class="results">
     <!-- <h2 class="sub-heading">Results</h2> -->
